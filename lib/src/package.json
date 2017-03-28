@@ -1,0 +1,10 @@
+{
+  "name": "angular2-signature-pad",
+  "version": "1.0.0",
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "@angular/common": "*",
+    "@angular/core": "*"
+  }
+}   

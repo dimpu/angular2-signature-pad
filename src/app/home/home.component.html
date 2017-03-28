@@ -1,0 +1,46 @@
+<div class="uk-flex uk-flex-center">
+
+    <form class="uk-form-horizontal uk-margin-large uk-light uk-background-secondary  uk-padding">
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Label</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" [(ngModel)]="label" type="text" placeholder="Label" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+         <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Width</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" [(ngModel)]="width" type="number" placeholder="Width" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Height</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" [(ngModel)]="height" type="number" placeholder="Height" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">No Footer</label>
+            <div class="uk-form-controls">
+                <input class="uk-checkbox" id="form-horizontal-text" [(ngModel)]="noFooter" type="checkbox" placeholder="No footer" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+
+    </form>
+
+
+    <div class="uk-padding">
+        <signature-pad 
+        (onSave)="onSaveHandler($event)" 
+        (onClear)="onClearHandler()" 
+        [width]="width" 
+        [height]="height" 
+        [hideFooter]="noFooter" 
+        [label]="label"></signature-pad>
+    </div>
+
+</div>
