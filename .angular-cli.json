@@ -8,9 +8,8 @@
     "root": "lib/src",
     "outDir": "lib/dist",
     "main":"index.ts",
-    "tsconfig": "tsconfig.json"
+    "tsconfig": "lib/src/tsconfig.json"
   }],
-
   "apps": [
     {
       "root": "src",

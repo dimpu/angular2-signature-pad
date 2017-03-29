@@ -1,7 +1,8 @@
 {
   "name": "angular2-signature-pad",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
+    "signature_pad": "^1.5.3"
   },
   "peerDependencies": {
     "@angular/common": "*",

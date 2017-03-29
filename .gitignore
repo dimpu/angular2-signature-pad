@@ -41,6 +41,7 @@ jspm_packages
 /dist
 /tmp
 /out-tsc
+/lib/dist
 
 # dependencies
 /node_modules

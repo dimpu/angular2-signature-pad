@@ -29,7 +29,7 @@ import { SignaturePadModule } from 'angular2-signature-pad';
 
 @NgModule({
    ...
-   imports: [SignaturePadModule.forRoot(), ... ],
+   imports: [SignaturePadModule, ... ],
     ...
 })
 ```
