@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser'
 
 // import angular2-signature-pad module
 import { SignaturePadModule } from 'angular2-signature-pad';
-import { MarkdownModule } from 'angular2-markdown';
 
 
 @Component({
@@ -39,7 +38,6 @@ export class AppComponent {
 @NgModule({
   imports: [
     BrowserModule,
-    MarkdownModule.forRoot(),
     SignaturePadModule
   ],
   declarations: [AppComponent],
