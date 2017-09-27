@@ -81,6 +81,7 @@ import { AppComponent } from '../src/app.component';
         [width]="width" 
         [height]="height" 
         [hideFooter]="noFooter" 
+        [formDataURL]="dataUrlVar" 
         [label]="label"></signature-pad>
 ```
 
