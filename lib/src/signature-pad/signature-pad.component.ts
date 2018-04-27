@@ -1,10 +1,10 @@
-import { Component,Output, Input, EventEmitter, OnInit,ElementRef } from '@angular/core';
+import { Component, Output, Input, EventEmitter, OnInit, ElementRef } from '@angular/core';
 import * as SignaturePad from 'signature_pad';
 import { SignaturePadService } from './signature-pad.service';
 
 @Component({
-  selector: 'signature-pad,[SignaturePad]',
-  template: `
+	selector: 'signature-pad,[SignaturePad]',
+	template: `
     <div id="signature-pad" class="m-signature-pad" [style.width.px]="_width" [style.height.px]="_height">
     <div class="m-signature-pad--body" [style.width.px]="_width-40" [style.height.px]="_height-40">
        <canvas [width]="_width-40" [height]="_height-40" style="touch-action: none;"></canvas>
@@ -16,7 +16,7 @@ import { SignaturePadService } from './signature-pad.service';
     </div>
   </div>
  `,
-  styles: [`
+	styles: [`
 .m-signature-pad {
   position: relative;
   font-size: 10px;
@@ -26,7 +26,7 @@ import { SignaturePadService } from './signature-pad.service';
   border-radius: 4px;
 }
 
-.m-signature-pad:before, 
+.m-signature-pad:before,
 .m-signature-pad:after {
 	position: absolute;
   z-index: -1;
@@ -143,71 +143,72 @@ import { SignaturePadService } from './signature-pad.service';
   `]
 })
 export class SignaturePadComponent implements OnInit {
-  @Output() onSave = new EventEmitter();
-  @Output() onClear = new EventEmitter();
- 
-  private _fromDataURL:String;
-  private _fromData:any;
-  
-  public _width:number = 200;
-  public _height:number = 200;
-  public _hideFooter:boolean;
-  public _label:string = 'Sign above';
+	@Output() onSave = new EventEmitter();
+	@Output() onClear = new EventEmitter();
 
-  private _canvas: any;
-  private _signaturePad:any;
-  
-  constructor(
-    private _el:ElementRef
-  ) { }
+	private _fromDataURL: String;
+	private _fromData: any;
 
-  ngOnInit() {
-  }
+	public _width: number = 200;
+	public _height: number = 200;
+	public _hideFooter: boolean;
+	public _label: string = 'Sign above';
 
-  @Input() 
-  set width(value:number) {
-    this._width = value;
-  }
+	private _canvas: any;
+	private _signaturePad: any;
 
-  @Input()
-  set height(value:number) {
-    this._height = value;
-  }
+	constructor(
+		private _el: ElementRef
+	) { }
 
-  @Input()
-  set formDataURL (value:string) {
-    this._fromDataURL = value;
-    this._signaturePad.fromDataURL(this._fromDataURL);
-  }
+	ngOnInit() {
+	}
 
-  @Input()
-  set fromData(value:string) {
-    this._fromData = value;
-    this._signaturePad.fromData(this._fromData);
-  }
+	@Input()
+	set width(value: number) {
+		this._width = value;
+	}
 
-  @Input() 
-  set hideFooter(value:boolean) {
-    this._hideFooter = value;
-  }
+	@Input()
+	set height(value: number) {
+		this._height = value;
+	}
 
-  @Input()
-  set label(value:string) {
-    this._label = value;
-  }
+	@Input()
+	set formDataURL(value: string) {
+		this._fromDataURL = value;
+		this._signaturePad.fromDataURL(this._fromDataURL);
+	}
 
-  ngAfterViewInit() {
-    this._canvas = this._el.nativeElement.querySelector("canvas");
-    this._signaturePad = new SignaturePad(this._canvas);
-  }
+	@Input()
+	set fromData(value: string) {
+		this._fromData = value;
+		this._signaturePad.fromData(this._fromData);
+	}
 
-  onClearClick() {
-    this._signaturePad.clear();
-    this.onClear.emit();
-  }
+	@Input()
+	set hideFooter(value: boolean) {
+		this._hideFooter = value;
+	}
 
-  onSaveClick() {
-    this.onSave.emit(this._signaturePad.toDataURL()); 
-  }
+	@Input()
+	set label(value: string) {
+		this._label = value;
+	}
+
+	ngAfterViewInit() {
+		this._canvas = this._el.nativeElement.querySelector("canvas");
+		// this._signaturePad = new SignaturePad(this._canvas);
+		this._signaturePad = new SignaturePad.default(this._canvas);
+	}
+
+	onClearClick() {
+		this._signaturePad.clear();
+		this.onClear.emit();
+	}
+
+	onSaveClick() {
+		this.onSave.emit(this._signaturePad.toDataURL());
+	}
 
 }
